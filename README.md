@@ -1,1 +1,2 @@
 # testpages
+es6

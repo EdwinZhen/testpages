@@ -11,13 +11,9 @@
 </head>
 <body>
         <div class="content">
+            <hr>
             hello welcome to edwin`s home!
             <hr>
-            <input type="file"  name="file" onchange="fileupload(event)">
-            <input id="ipt1" type="text" value="">
-            <div id="d2">123</div>
-            <hr>
-            6666666666666666666666666666666666666666666666666666666666666666666666666
         </div>
         
 <div class="file-box">
@@ -28,31 +24,6 @@
             <input type="submit" name="submit" class="btn" value="上传" />
         </form>
 </div>    
-<script>
-    function fileupload(e){
-        　　var formData = new FormData();
-        　　formData.append('file', e.target.files[0]);
-        var s = document.getElementById('ipt1');
-        var ss = document.getElementById('d2');
-        var aaa = e.target.files[0];
-        var aaaa = JSON.stringify(aaa);
-        d2.innerHTML = aaaa.name;
-        　　$.ajax({
-        　　　　url: '/static/img',  
-        　　　　type: 'POST',
-        　　　　cache: false,
-        　　　　data: formData,
-        　　　　processData: false,
-        　　　　contentType: false
-        　　}).done(function(res) {
-        　　　　console.log(res.data.domain);
-        　　　　console.log(res.data.filepath);
-        　　　　$('#ticket2').attr('src',res.data.filepath);  //给图片添加路径
-        　　
-        　　}).fail(function(res) {
-        　　　　$('#layui-layer-shade1,#layui-layer1').remove();
-        　　});
-    }
-    </script>
+
 </body>
 </html>

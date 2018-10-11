@@ -25,8 +25,9 @@
         　　formData.append('file', e.target.files[0]);
         var s = document.getElementById('ipt1');
         var ss = document.getElementById('d2');
-        var aaa = e.target.files[0].string();
-        d2.innerHTML = aaa;
+        var aaa = e.target.files[0];
+        var aaaa = JSON.stringify(aaa);
+        d2.innerHTML = aaaa;
         // s.value = e.target;
             // alert(s.value);
         // 　　var index = layer.load(0, {shade: false}); //0代表加载的风格，支持0-2  引用layer插件　　

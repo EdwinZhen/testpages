@@ -28,26 +28,25 @@
         var aaa = e.target.files[0];
         var aaaa = JSON.stringify(aaa);
         d2.innerHTML = aaaa.name;
-        // s.value = e.target;
-            // alert(s.value);
+       
         // 　　var index = layer.load(0, {shade: false}); //0代表加载的风格，支持0-2  引用layer插件　　
-        // 　　$.ajax({
-        // 　　　　url: '/api/User/avatarUpload',  
-        // 　　　　type: 'POST',
-        // 　　　　cache: false,
-        // 　　　　data: formData,
-        // 　　　　processData: false,
-        // 　　　　contentType: false
-        // 　　}).done(function(res) {
-        // 　　　　console.log(res.data.domain);
-        // 　　　　console.log(res.data.filepath);
+        　　$.ajax({
+        　　　　url: '/static/img',  
+        　　　　type: 'POST',
+        　　　　cache: false,
+        　　　　data: formData,
+        　　　　processData: false,
+        　　　　contentType: false
+        　　}).done(function(res) {
+        　　　　console.log(res.data.domain);
+        　　　　console.log(res.data.filepath);
 
-        // 　　　　$('#layui-layer-shade1,.layui-layer.layui-layer-loading').remove();  //去掉加载loading
-        // 　　　　$('#ticket2').attr('src',res.data.filepath);  //给图片添加路径
-        // 　　
-        // 　　}).fail(function(res) {
-        // 　　　　$('#layui-layer-shade1,#layui-layer1').remove();
-        // 　　});
+        　　　　$('#layui-layer-shade1,.layui-layer.layui-layer-loading').remove();  //去掉加载loading
+        　　　　$('#ticket2').attr('src',res.data.filepath);  //给图片添加路径
+        　　
+        　　}).fail(function(res) {
+        　　　　$('#layui-layer-shade1,#layui-layer1').remove();
+        　　});
     }
     </script>
 </body>

@@ -19,6 +19,15 @@
             <hr>
             6666666666666666666666666666666666666666666666666666666666666666666666666
         </div>
+        
+<div class="file-box">
+        <form action="/static" method="post" enctype="multipart/form-data">
+            <input type='text' name='textfield' id='textfield' class='txt' />
+            <input type='button' class='btn' value='浏览...' />
+            <input type="file" name="fileField" class="file" id="fileField" size="28" onchange="document.getElementById('textfield').value=this.value" />
+            <input type="submit" name="submit" class="btn" value="上传" />
+        </form>
+</div>    
 <script>
     function fileupload(e){
         　　var formData = new FormData();
@@ -28,26 +37,21 @@
         var aaa = e.target.files[0];
         var aaaa = JSON.stringify(aaa);
         d2.innerHTML = aaaa.name;
-        // s.value = e.target;
-            // alert(s.value);
-        // 　　var index = layer.load(0, {shade: false}); //0代表加载的风格，支持0-2  引用layer插件　　
-        // 　　$.ajax({
-        // 　　　　url: '/api/User/avatarUpload',  
-        // 　　　　type: 'POST',
-        // 　　　　cache: false,
-        // 　　　　data: formData,
-        // 　　　　processData: false,
-        // 　　　　contentType: false
-        // 　　}).done(function(res) {
-        // 　　　　console.log(res.data.domain);
-        // 　　　　console.log(res.data.filepath);
-
-        // 　　　　$('#layui-layer-shade1,.layui-layer.layui-layer-loading').remove();  //去掉加载loading
-        // 　　　　$('#ticket2').attr('src',res.data.filepath);  //给图片添加路径
-        // 　　
-        // 　　}).fail(function(res) {
-        // 　　　　$('#layui-layer-shade1,#layui-layer1').remove();
-        // 　　});
+        　　$.ajax({
+        　　　　url: '/static/img',  
+        　　　　type: 'POST',
+        　　　　cache: false,
+        　　　　data: formData,
+        　　　　processData: false,
+        　　　　contentType: false
+        　　}).done(function(res) {
+        　　　　console.log(res.data.domain);
+        　　　　console.log(res.data.filepath);
+        　　　　$('#ticket2').attr('src',res.data.filepath);  //给图片添加路径
+        　　
+        　　}).fail(function(res) {
+        　　　　$('#layui-layer-shade1,#layui-layer1').remove();
+        　　});
     }
     </script>
 </body>

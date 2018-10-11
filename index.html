@@ -1,1 +1,42 @@
-<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><link rel=stylesheet href=static/css/all_ty.css><link rel=stylesheet href=static/css/swiper.min.css><script src=static/js/swiper.min.js></script><script src=static/js/jquery.min.js></script><script type=text/javascript src=https://3gimg.qq.com/lightmap/components/geolocation/geolocation.min.js></script><title>八音</title><link href=/static/css/app.d673934463ae6dbd51b08c38a241bfa1.css rel=stylesheet></head><body><div id=app></div><script type=text/javascript src=/static/js/manifest.2ae2e69a05c33dfc65f8.js></script><script type=text/javascript src=/static/js/vendor.c2f9a40d8e4825159814.js></script><script type=text/javascript src=/static/js/app.7014135468adc983908c.js></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>edwin testPages</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+        <div class="content">
+                <input type="file"  name="file" onchange="fileupload(event)">
+        </div>
+<script>
+    function fileupload(e){
+        　　var formData = new FormData();
+        　　formData.append('file', e.target.files[0]);
+            console.log(e.name);
+        // 　　var index = layer.load(0, {shade: false}); //0代表加载的风格，支持0-2  引用layer插件　　
+        // 　　$.ajax({
+        // 　　　　url: '/api/User/avatarUpload',  
+        // 　　　　type: 'POST',
+        // 　　　　cache: false,
+        // 　　　　data: formData,
+        // 　　　　processData: false,
+        // 　　　　contentType: false
+        // 　　}).done(function(res) {
+        // 　　　　console.log(res.data.domain);
+        // 　　　　console.log(res.data.filepath);
+
+        // 　　　　$('#layui-layer-shade1,.layui-layer.layui-layer-loading').remove();  //去掉加载loading
+        // 　　　　$('#ticket2').attr('src',res.data.filepath);  //给图片添加路径
+        // 　　
+        // 　　}).fail(function(res) {
+        // 　　　　$('#layui-layer-shade1,#layui-layer1').remove();
+        // 　　});
+    }
+    </script>
+</body>
+</html>

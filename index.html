@@ -14,6 +14,7 @@
             hello welcome to edwin`s home!
             <hr>
             <input type="file"  name="file" onchange="fileupload(event)">
+            <input id="ipt1" type="text" value="">
             <hr>
             6666666666666666666666666666666666666666666666666666666666666666666666666
         </div>
@@ -21,7 +22,8 @@
     function fileupload(e){
         　　var formData = new FormData();
         　　formData.append('file', e.target.files[0]);
-            alert("789546");
+        var s = document.getElementById('ipt1');
+            alert(s.value);
         // 　　var index = layer.load(0, {shade: false}); //0代表加载的风格，支持0-2  引用layer插件　　
         // 　　$.ajax({
         // 　　　　url: '/api/User/avatarUpload',  

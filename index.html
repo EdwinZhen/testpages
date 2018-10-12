@@ -124,25 +124,37 @@
             text-align: center;
             font-size: 0.13rem;
         }
+        #ceshi div {
+            width: 30%;
+            height: 0.2rem;
+            margin-bottom: 0.2rem;
+            border: 1px solid #00e0A8;
+        }
     </style>
 </head>
 <body>
 <div class="content">
     <div class="video_title"><input type="text" placeholder="请输入标题" /></div>
     <div class="video_title_num">6/13</div>
-    <div class="video_content">
+    <div class="video_content" id="container">
         <div>
             <div id="upload_video">
+                <input id="upload_video_address" type="text" value=""/>
                 <div class="choose_video_out" id="upload_video_btn">
                     <span class="choose_video_txt">上传视频</span>
-                    <input class="choose_video" name="file" type="file"  onchange="document.getElementById('video_content_c').src=this.value" />
+                    <input class="choose_video" name="file" type="file"  onchange="document.getElementById('upload_video_address').value=this.value" />
                 </div>
-                <div id="container"></div>
+                <div id="sdasdasd"></div>
             </div>
             <div id="upload_btn" class="content_sure">确认投稿</div>
         </div>
         <!--   http://qiniu.eightyin.com/data/upload/zppgwg.mp4  -->
         <video id="video_content_c" src="" width="100%" height="100%" controls></video>
+    </div>
+    <div id="ceshi">测试
+        <div id="anniu">按钮
+            <input type="file"/></div>
+        <div id="kaishishangchuan">开始上传</div>
     </div>
 </div>
 <script src="js/jquery.min.js"></script>
@@ -166,7 +178,7 @@
     //引入Plupload 、qiniu.js后
     var uploader = Qiniu.uploader({
         runtimes: 'html5,flash,html4',    //上传模式,依次退化
-        browse_button: 'upload_video_btn',       //上传选择的点选按钮，**必需**
+        browse_button: 'anniu',       //上传选择的点选按钮，**必需**
 //        uptoken_url: '/token',            //Ajax请求upToken的Url，**强烈建议设置**（服务端提供）
          uptoken : 'vMK0cNd1Z3qVa9V-dztpSF61U3ec3c4fLVTlbziD:YMnNr6LVOU5IcKwWvdpODuBnvS0=:eyJzY29wZSI6ImJheWluIiwiZGVhZGxpbmUiOjE2MDI0MTY0NzB9', //若未指定uptoken_url,则必须指定 uptoken ,uptoken由其他程序生成
          unique_names: true, // 默认 false，key为文件名。若开启该选项，SDK为自动生成上传成功后的key（文件名）。
@@ -185,6 +197,8 @@
             'FilesAdded': function(up, files) {
                 plupload.each(files, function(file) {
                     // 文件添加进队列后,处理相关的事情
+                    document.getElementById('upload_video_address').value = file.name;
+                    console.log(file);
                 });
             },
             'BeforeUpload': function(up, file) {
@@ -205,7 +219,11 @@
                 // var domain = up.getOption('domain');
 //                 var res = parseJSON(info.response);
 //                 var sourceLink = domain + res.key; //获取上传成功后的文件的Url
-                console.log(info);
+//                console.log(info.response);
+                var s_key= JSON.parse(info.response);
+                var comeback_url = 'http://qiniu.eightyin.com/' + s_key.key;
+                alert(comeback_url);
+//                window.location.href = "http://www.baidu.com";
             },
             'Error': function(up, err, errTip) {
                 //上传出错时,处理相关的事情
@@ -223,7 +241,7 @@
             }
         }
     });
-    $('#upload_btn').click(function(){
+    $('#kaishishangchuan').click(function(){
         console.log("123");
         uploader.start();
     });

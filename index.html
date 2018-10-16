@@ -1,250 +1,37 @@
 <!DOCTYPE html>
 <html>
-<head lang="zh-CN">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
-    <link rel="stylesheet" href="baSvn/sites/m/content/themes/h5/css/all_ty.css"/>
-    <title>上传视频</title>
-    <style>
-        html {font-size: 625%;}
-        *{
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-        }
-        @media screen and (min-width:360px) and (max-width:374px) and (orientation:portrait) {
-            html { font-size: 703%; }
-        }
-        @media screen and (min-width:375px) and (max-width:383px) and (orientation:portrait) {
-            html { font-size: 732.4%; }
-        }
-        @media screen and (min-width:384px) and (max-width:399px) and (orientation:portrait) {
-            html { font-size: 750%; }
-        }
-        @media screen and (min-width:400px) and (max-width:413px) and (orientation:portrait) {
-            html { font-size: 781.25%; }
-        }
-        @media screen and (min-width:414px) and (max-width:431px) and (orientation:portrait){
-            html { font-size: 808.6%; }
-        }
-        @media screen and (min-width:432px) and (max-width:479px) and (orientation:portrait){
-            html { font-size: 843.75%; }
-        }
-        body {
-            background: #e7e7e7;
-        }
-        .content {font-size: .11rem;}
-        input,button,select,textarea{outline:none;}
-        img{width: 100%;height:100%;font-size: .11rem;}
-        .ci_title {
-            font-size: .15rem;
-            font-weight: bold;
-            color: #333;
-            background: #ffffff;
-            padding: .12rem .15rem;
-            margin-bottom: 0;
-            border-bottom: 1px solid #ddd;
-        }
-        .ci_title::before {
-            content: "";
-            display: inline-block;
-            width: 3px;
-            height: 0.15rem;
-            border-left: 5px solid #00e0A8;
-            position: relative;
-            left: -0.025rem;
-            bottom: -0.025rem;
-        }
-        body {background: #dddddd;}
-        .video_title {
-            font-size: 0.12rem;
-            background: #FFFFFF;
-            padding: 0.2rem;
-            margin-top: 0.05rem;
-        }
-        .video_title input {
-            border: none;
-            width: 100%;
-            letter-spacing: 0.01rem;
-            font-size: 0.15rem;
-        }
-        .video_title_num {
-            font-size: 0.09rem;
-            padding: 0.2rem;
-            padding-top: 0.08rem;
-            opacity: 0.65;
-            margin-bottom: 1rem;
-        }
-        .video_content {
-            width: 90%;
-            margin: 0 5%;
-        }
-        .content_sure {
-            width: 60%;
-            padding: 0.05rem;
-            color: #ffffff;
-            background: linear-gradient(to right,#31D5DD 0%,#00E79D 100%);
-            border-radius: 3rem;
-            border: none;
-            position: fixed;
-            bottom: 0.3rem;
-            left: 20%;
-            font-size: 0.15rem;
-            font-weight: bold;
-            text-align: center;
-        }
-        #video_content_c {
-            display: none;
-        }
-        #upload_video {
-            font-size: 0.11rem;
-        }
-        .choose_video_out {
-            width: 30%;
-            padding: 0.05rem 0.1rem;
-            color: #FFFFFF;
-            background: #00e0A8;
-            border-radius: 0.05rem;
-            position: relative;
-            margin: 0 auto;
-        }
-        .choose_video {
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-        }
-        .choose_video_txt {
-            position: absolute;
-            top: 0;
-            left: 0;
-            display: block;
-            width: 100%;
-            height: 100%;
-            padding: 0.05rem 0.1rem;
-            text-align: center;
-            font-size: 0.13rem;
-        }
-        #ceshi div {
-            width: 30%;
-            height: 0.2rem;
-            margin-bottom: 0.2rem;
-            border: 1px solid #00e0A8;
-        }
-    </style>
+<head>
+<meta charset="UTF-8">
+<title>capture screen</title>
 </head>
 <body>
-<div class="content">
-    <div class="video_title"><input type="text" placeholder="请输入标题" /></div>
-    <div class="video_title_num">6/13</div>
-    <div class="video_content" id="container">
-        <div>
-            <div id="upload_video">
-                <input id="upload_video_address" type="text" value=""/>
-                <div class="choose_video_out" id="upload_video_btn">
-                    <span class="choose_video_txt">上传视频</span>
-                    <input class="choose_video" name="file" type="file"  onchange="document.getElementById('upload_video_address').value=this.value" />
-                </div>
-                <div id="sdasdasd"></div>
-            </div>
-            <div id="upload_btn" class="content_sure">确认投稿</div>
-        </div>
-        <!--   http://qiniu.eightyin.com/data/upload/zppgwg.mp4  -->
-        <video id="video_content_c" src="" width="100%" height="100%" controls></video>
-    </div>
-    <div id="ceshi">测试
-        <div id="anniu">按钮
-            <input type="file"/></div>
-        <div id="kaishishangchuan">开始上传</div>
-    </div>
-</div>
-<script src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/plupload.min.js"></script>
-<script type="text/javascript" src="js/qiniu.min.js"></script>
-<!-- <script src="baSvn/sites/m/content/themes/h5/js/jquery.min.js"></script> -->
-<!--  vMK0cNd1Z3qVa9V-dztpSF61U3ec3c4fLVTlbziD:YMnNr6LVOU5IcKwWvdpODuBnvS0=:eyJzY29wZSI6ImJheWluIiwiZGVhZGxpbmUiOjE2MDI0MTY0NzB9  -->
-<script>
-    $(document).bind('change',function () {
-        var video_src= $('#video_content_c').attr('src');
-        if(video_src == ""){
-            $('#video_content_c').attr("style","display:none");
-            $('#upload_video').attr("style","display:block");
-        }else{
-            $('#video_content_c').attr("style","display:block");
-            $('#upload_video').attr("style","display:none");
-        }
-    });
-</script>
-<script>
-    //引入Plupload 、qiniu.js后
-    var uploader = Qiniu.uploader({
-        runtimes: 'html5,flash,html4',    //上传模式,依次退化
-        browse_button: 'anniu',       //上传选择的点选按钮，**必需**
-//        uptoken_url: '/token',            //Ajax请求upToken的Url，**强烈建议设置**（服务端提供）
-         uptoken : 'vMK0cNd1Z3qVa9V-dztpSF61U3ec3c4fLVTlbziD:YMnNr6LVOU5IcKwWvdpODuBnvS0=:eyJzY29wZSI6ImJheWluIiwiZGVhZGxpbmUiOjE2MDI0MTY0NzB9', //若未指定uptoken_url,则必须指定 uptoken ,uptoken由其他程序生成
-         unique_names: true, // 默认 false，key为文件名。若开启该选项，SDK为自动生成上传成功后的key（文件名）。
-        // save_key: true,   // 默认 false。若在服务端生成uptoken的上传策略中指定了 `sava_key`，则开启，SDK会忽略对key的处理
-        domain: 'http://qiniu.eightyin.com/',   //bucket 域名，下载资源时用到，**必需**
-        get_new_uptoken: false,  //设置上传文件的时候是否每次都重新获取新的token
-        container: 'container',           //上传区域DOM ID，默认是browser_button的父元素，
-        max_file_size: '1000mb',           //最大文件体积限制
-        flash_swf_url: 'js/Moxie.swf',  //引入flash,相对路径
-        max_retries: 3,                   //上传失败最大重试次数
-        dragdrop: true,                   //开启可拖曳上传
-        drop_element: 'container',        //拖曳上传区域元素的ID，拖曳文件或文件夹后可触发上传
-        chunk_size: '4mb',                //分块上传时，每片的体积
-        auto_start: false,                 //选择文件后自动上传，若关闭需要自己绑定事件触发上传
-        init: {
-            'FilesAdded': function(up, files) {
-                plupload.each(files, function(file) {
-                    // 文件添加进队列后,处理相关的事情
-                    document.getElementById('upload_video_address').value = file.name;
-                    console.log(file);
-                });
-            },
-            'BeforeUpload': function(up, file) {
-                // 每个文件上传前,处理相关的事情
-            },
-            'UploadProgress': function(up, file) {
-                // 每个文件上传时,处理相关的事情
-            },
-            'FileUploaded': function(up, file, info) {
-                // 每个文件上传成功后,处理相关的事情
-                // 其中 info.response 是文件上传成功后，服务端返回的json，形式如
-                // {
-                //    "hash": "Fh8xVqod2MQ1mocfI4S4KpRL6D98",
-                //    "key": "gogopher.jpg"
-                //  }
-                // 参考http://developer.qiniu.com/docs/v6/api/overview/up/response/simple-response.html
-
-                // var domain = up.getOption('domain');
-//                 var res = parseJSON(info.response);
-//                 var sourceLink = domain + res.key; //获取上传成功后的文件的Url
-//                console.log(info.response);
-                var s_key= JSON.parse(info.response);
-                var comeback_url = 'http://qiniu.eightyin.com/' + s_key.key;
-                alert(comeback_url);
-//                window.location.href = "http://www.baidu.com";
-            },
-            'Error': function(up, err, errTip) {
-                //上传出错时,处理相关的事情
-            },
-            'UploadComplete': function() {
-                //队列文件处理完毕后,处理相关的事情
-            },
-            'Key': function(up, file) {
-                // 若想在前端对每个文件的key进行个性化处理，可以配置该函数
-                // 该配置必须要在 unique_names: false , save_key: false 时才生效
-
-                var key = "";
-                // do something with key here
-                return key
-            }
-        }
-    });
-    $('#kaishishangchuan').click(function(){
-        console.log("123");
-        uploader.start();
-    });
+<video id="video" width="100%" controls="controls">
+<source src="http://qiniu.eightyin.com/o_1cptctma1a7o3057nh13hk1buia.mp4">
+</video>
+<div id="output"></div>
+<script type="text/javascript">
+(function(){
+var video, output;
+var scale = 0.8;
+var initialize = function() {
+output = document.getElementById("output");
+video = document.getElementById("video");
+video.addEventListener('loadeddata',captureImage);
+};
+ 
+var captureImage = function() {
+            var canvas = document.createElement("canvas");
+            canvas.width = video.videoWidth * scale;
+            canvas.height = video.videoHeight * scale;
+            canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+ 
+            var img = document.createElement("img");
+            img.src = canvas.toDataURL("image/png");
+            output.appendChild(img);
+};
+ 
+initialize();
+})();
 </script>
 </body>
 </html>

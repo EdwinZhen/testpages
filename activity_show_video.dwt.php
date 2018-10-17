@@ -45,9 +45,6 @@
                         // console.log(res);
                         $('.content_sure').css("background","#dddddd");
                         $('.content_sure').text("已支持");
-                        // var zhi_chi_num = $('#zhi_chi_unm_p').text();
-                        // zhi_chi_num++;
-                        // $('#zhi_chi_unm_p').text(zhi_chi_num);n
                     });
                 // $.ajaxSettings.async = true;
             }else{

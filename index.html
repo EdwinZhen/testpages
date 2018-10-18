@@ -1,1 +1,60 @@
-<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><link rel=stylesheet href=static/css/all_ty.css><link rel=stylesheet href=static/css/swiper.min.css><script src=static/js/swiper.min.js></script><script src=static/js/jquery.min.js></script><script type=text/javascript src=https://3gimg.qq.com/lightmap/components/geolocation/geolocation.min.js></script><title>八音</title><link href=/static/css/app.fd3c05997c191eed879a28b13bbb388b.css rel=stylesheet></head><body><div id=app></div><script type=text/javascript src=/static/js/manifest.2ae2e69a05c33dfc65f8.js></script><script type=text/javascript src=/static/js/vendor.c2f9a40d8e4825159814.js></script><script type=text/javascript src=/static/js/app.2af485d60dc7b38ae3b0.js></script></body></html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="shortcut icon" href="static/images/icon/putao.png">
+	<title>适配方案</title>
+	<script>
+		document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + 'px';
+		var deviceWidth = document.documentElement.clientWidth;
+		if(deviceWidth > 750) deviceWidth = 750;
+		document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';　　　　　
+	</script>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+		@media screen and (max-width:321px){
+		    .m-navlist{font-size:15px}
+		}
+
+		@media screen and (min-width:321px) and (max-width:400px){
+		    .m-navlist{font-size:16px}
+		}
+
+		@media screen and (min-width:400px){
+		    .m-navlist{font-size:18px}
+		}
+		.content {
+			width: 7.5rem;
+			height: 13.34rem;
+			font-size: .36rem;
+			background: #ddd;
+			border: 1px dotted #00e0a8;
+			position: relative;
+		}
+		header,footer{
+			height: 1rem;
+			line-height: 1rem;
+			background: #aaaaaa;
+			text-align: center;
+		}
+		footer {
+			width: 100%;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="content">
+		<header>top</header>
+		<div>content</div>
+		<footer>bottom</footer>
+	</div>
+</body>
+</html>

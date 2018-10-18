@@ -1,0 +1,157 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: FingFang SC;
+}
+.fl {
+  float: left;
+}
+.pagger {
+  /* height: 30px;
+  margin: 20px auto 0px auto; */
+  text-align: center;
+  /* width: 730px; */
+  font-family: PingFangSC-Regular;
+	font-size: 12px;
+	color: #303133;
+	display: block;
+}
+.tableBox{
+	padding-bottom: 0px;
+}
+.pagger-box{
+
+	width: 100%;
+
+}
+
+/* .pagger button {
+  padding: 0 5px;
+  margin: 0 10px;
+  height: 18px;
+  float: left;
+  cursor: pointer;
+  border: 0px solid #ebebeb;
+  background-color: #ffffff;
+} */
+.pagger .first-page,
+.pagger .last-page {
+  margin: 0;
+}
+.pagger .pageWrap {
+  /* height: 17px; */
+  float: left;
+  overflow: hidden;
+}
+.pagger .pageWrap ul {
+  width: 999999999px;
+  height: 40px;
+  float: left;
+}
+/* .pagger .pageWrap ul li {
+  width: 15px;
+  height: 16px;
+  margin: 0px 15px;
+  border-radius: 15px;
+  pagger-sizing: border-pagger;
+  cursor: pointer;
+  float: left;
+} */
+/* .pagger .pageWrap ul .sel-page {
+  background-color: #2D5FAD;
+    color: #fff;
+    width: auto;
+    padding: 0 4px;
+} */
+.pagger .jump-text {
+  width: 30px;
+  /* height: 20px; */
+  /* pagger-sizing: border-pagger; */
+  /* border:1px solid #E5E6E7; */
+  text-align: center;
+  margin: 0 5px;
+  float: left;
+}
+.pagger .jump-button {
+  margin: 0;
+  float: left;
+}
+.pagger .total-pages,
+.pagger .total-count {
+  margin-left: 10px;
+  float: left;
+  font-size: 14px;
+}
+/* edwin的更改 */
+#__edwin__first_line {
+  display: flex;
+}
+#__edwin__two_line {
+  display: flex;
+}
+.pagger-box {
+  padding: 0.1rem 0;
+  color: #aaaaaa;
+}
+
+    .pagger-box input ,.pagger-box button {
+      background: transparent;
+      border: 1px dotted #00e0a8;
+      border-radius: 2rem;
+      color: #aaaaaa;
+      outline-style: none;
+    }
+    #__edwin__first_line,#__edwin__two_line {
+      width: 100%;
+      height: 0.7rem;
+      font-size: .2rem;
+      padding: 0.1rem 0.2rem;
+    }
+    .pageWrap {
+      !import width: 40%;
+      text-align: center;
+      overflow: hidden;
+    }
+    .pageSelect {
+      /* height: 0.5rem; */
+      /* line-height: 0.5rem; */
+      overflow: hidden;
+      width: 666666rem;
+    }
+    .pageSelect li {
+      display: inline-block;
+      font-size: .2rem;
+      width: 0.5rem;
+      height: 0.5rem;
+      margin: 0 0.1rem;
+      float: left;
+
+    }
+    li.sel-page {
+      background: #00e0a5;
+      border-radius: 50%;
+      color: #ffffff;
+      width: 0.3rem;
+      height: 0.3rem;
+    }
+    .turnPage {
+      width: 15%;
+      margin: 0 0.1rem;
+    }
+    .pagger-box .jumpText {
+      margin-left: 0.1rem;
+      margin-right: -1px;
+      width: 20%;
+      padding-left: 0.1rem;
+      border-radius: 2rem 0 0 2rem;
+    }
+    .pagger-box .jump-button {
+      width: 20%;
+      border-radius: 0 2rem 2rem 0;
+    }
+    .total-pages,.total-count {
+      width: 30%;
+      line-height: 0.5rem;
+      text-align: center;
+    }

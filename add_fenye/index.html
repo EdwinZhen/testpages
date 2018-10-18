@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>分页加载-数据</title>
+	<link rel="shortcut icon" href="static/images/icon/putao.png">
+	<script>
+		document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + 'px';
+		var deviceWidth = document.documentElement.clientWidth;
+		if(deviceWidth > 750) deviceWidth = 750;
+		document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';　　　　　
+	</script>
+	<link rel="stylesheet" href="static/css/paging.css">
+	<script src="static/js/jquery.min.js"></script>
+	<script src="static/js/paging.js"></script>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+		.others_no {
+			width: 100%;
+			height: 6rem;
+			text-align: center;
+			background: #dddddd;
+			font-size: .48rem;
+			padding-top: 1rem;
+		}
+		.news_list {
+
+		}
+		.news_message {
+			display: flex;
+			padding: 0.1rem 0.2rem;
+			border: 1px dotted #e4393c;
+			height: 1rem;
+			overflow: hidden;
+		}
+		.news_title {
+			font-size: .24rem;
+			color: #333333;
+			font-weight: bold;
+			opacity: 1;
+			text-align: center;
+			width: 20%;
+		}
+		.news_content {
+			font-size: .18rem;
+			color: #333333;
+			opacity: 0.65;
+			width: 60%;
+			height: 0.7rem;
+			overflow: hidden;
+		}
+		.news_comment {
+			font-size: .16rem;
+			color: #00e0a8;
+			opacity: 0.65;
+			width: 20%;
+			text-align: center;
+		}
+		/* --------------------- paging样式 -------------------------------------------------------- */
+		
+
+	</style>
+</head>
+<body>
+	<div class="content">
+		<div class="others_no">pages out</div>
+		<div class="news_list">
+			<ul id="news_list_content"></ul>
+		</div>
+		<div class="pagger-box pagger tab_pages" id="tab_pages"></div>
+	</div>
+	<div>
+		<div class="news_list">
+			<ul id="news_list_content_c"></ul>
+		</div>
+		 <div class="pagger-box pagger tab_pages" id="tab_pagesss">
+	</div>
+<script>
+		
+		$(function () {
+            function tab_change_pages(li_num_c) {
+            	//发请求获取总条数和总页码
+                var setTotalCount = 50;
+                $('#tab_pagesss').paging({
+                    initPageNo: 1, // 初始页码
+                    totalPages: 13, //总页数
+                    totalCount: '合计' + setTotalCount + '条数据', // 条目总数
+                    slideSpeed: 600, // 缓动速度。单位毫秒
+                    jump: true, //是否支持跳转
+                    __edwin__find_li_num: 2, //Edwin添加，显示的页码数量,页码3~xxx至少3起（）
+                    callback: function (page) { // 回调函数
+                        show_list_lie(page);
+                    }
+                });
+            }
+            tab_change_pages();
+        });
+        $(function () {
+            function tab_change_pages(li_num_c) {
+            	//发请求获取总条数和总页码
+                var setTotalCount = 50;
+                $('#tab_pages').paging({
+                    initPageNo: 1, // 初始页码
+                    totalPages: 13, //总页数
+                    totalCount: '合计' + setTotalCount + '条数据', // 条目总数
+                    slideSpeed: 600, // 缓动速度。单位毫秒
+                    jump: true, //是否支持跳转
+                    __edwin__find_li_num: 2, //Edwin添加，显示的页码数量,页码3~xxx至少3起（）
+                    callback: function (page) { // 回调函数
+                        show_list(page);
+                    }
+                });
+            }
+            tab_change_pages();
+        });
+        function show_list(page){
+        	var data;
+        	if(page == 1){
+        		data = {
+	        		statu : "success",
+	        		todu_list : [
+	        			{
+	        				title:'标题11',
+	        				content:'内容11内容11内容11内容11内容11',
+	        				comment:'评论11'
+	        			},
+	        			{
+	        				title:'标题22',
+	        				content:'内容22内容22内容22内容22内容22内容22内容22内容22内容22内容22内容22内容22内容22内容22',
+	        				comment:'评论22'
+	        			},
+	        			{
+	        				title:'标题33',
+	        				content:'内容33内容33内容33内容33内容33内容33内容33内容33内容33',
+	        				comment:'评论33'
+	        			},
+	        			{
+	        				title:'标题44',
+	        				content:'内容44内容44内容44内容44内容44内容44内容44',
+	        				comment:'评论44'
+	        			},
+	        			{
+	        				title:'标题55',
+	        				content:'内容55内容55内容55内容55内容55内容55内容55内容55内容55内容55内容55内容55',
+	        				comment:'评论55'
+	        			}
+	        		]
+	        	};
+	        }else if(page == 2){
+	        	data = {
+	        		statu : "success",
+	        		todu_list : [
+	        			{
+	        				title:'标题66',
+	        				content:'内容116666内容11内容11内容11内容11',
+	        				comment:'评论66'
+	        			},
+	        			{
+	        				title:'标题77',
+	        				content:'内容7777777777777777777722内容22内容22内容22内容22内容22内容22内容22内容22内容22内容22内容22内容22内容22',
+	        				comment:'评论77'
+	        			},
+	        			{
+	        				title:'标题88',
+	        				content:'内容88888888888888888888888833内容33内容33内容33内容33内容33内容33内容33内容33',
+	        				comment:'评论88'
+	        			},
+	        			{
+	        				title:'标题99',
+	        				content:'内容9999999999999999999999999944内容44内容44内容44内容44内容44内容44',
+	        				comment:'评论99'
+	        			},
+	        			{
+	        				title:'标题10',
+	        				content:'内容10............55内容55内容55内容55内容55内容55内容55内容55内容55内容55内容55内容55',
+	        				comment:'评论10'
+	        			}
+	        		]
+	        	};
+	        }else if(page == 3){
+	        	data = {
+	        		statu : "success",
+	        		todu_list : [
+	        			{
+	        				title:'标题1111',
+	        				content:'内容1111111111内容11内容11内容11内容11',
+	        				comment:'评论1111'
+	        			},
+	        			{
+	        				title:'标题12',
+	        				content:'内容12内容22内容22内容22内容22内容22内容22内容22内容22内容22内容22内容22内容22内容22',
+	        				comment:'评论12'
+	        			},
+	        			{
+	        				title:'标题13',
+	        				content:'内容13内容33内容33内容33内容33内容33内容33内容33内容33',
+	        				comment:'评论13'
+	        			},
+	        			{
+	        				title:'标题14',
+	        				content:'内容14内容44内容44内容44内容44内容44内容44',
+	        				comment:'评论14'
+	        			},
+	        			{
+	        				title:'标题15',
+	        				content:'内容15内容55内容55内容55内容55内容55内容55内容55内容55内容55内容55内容55',
+	        				comment:'评论15'
+	        			}
+	        		]
+	        	};
+	        }else{
+	        	data = {
+	        		statu : "success",
+	        		todu_list : [
+	        			{
+	        				title:'标题',
+	        				content:'内容1111111111内容11内容11内容11内容11',
+	        				comment:'评论'
+	        			},
+	        			{
+	        				title:'标题',
+	        				content:'内容12内容22内容22内容22内容22内容22内容22内容22内容22内容22内容22内容22内容22内容22',
+	        				comment:'评论'
+	        			},
+	        			{
+	        				title:'标题',
+	        				content:'内容13内容33内容33内容33内容33内容33内容33内容33内容33',
+	        				comment:'评论'
+	        			},
+	        			{
+	        				title:'标题',
+	        				content:'内容14内容44内容44内容44内容44内容44内容44',
+	        				comment:'评论'
+	        			},
+	        			{
+	        				title:'标题',
+	        				content:'内容15内容55内容55内容55内容55内容55内容55内容55内容55内容55内容55内容55',
+	        				comment:'评论'
+	        			}
+	        		]
+	        	};
+	        }
+        	if(data.statu == "success"){
+        		var news_list="" ;
+	        	$.each(data.todu_list,function(index, item) {
+	        		news_list += '<li>' ;
+	        		news_list += '<div class="news_message">' ;
+					news_list += '<div class="news_title">' + item.title + '</div>' ;
+					news_list += '<div class="news_content">' + item.content + '</div>' ;
+					news_list += '<div class="news_comment">' + item.comment + '</div>' ;
+					news_list += '</div>'
+					news_list += '</li>' ;
+	        	});
+	        	// console.log(news_list);
+	        	$('#news_list_content').html(news_list);
+        	}else{
+        		alert('数据获取失败，请重试...');
+        	}
+        }
+        function show_list_lie(page){
+        	var data;
+        	if(page == 1){
+        		data = {
+	        		statu : "success",
+	        		todu_list : [
+	        			{
+	        				title:'标题11',
+	        				content:'内容11内容11内容11内容11内容11',
+	        				comment:'评论11'
+	        			},
+	        			{
+	        				title:'标题22',
+	        				content:'内容22内容22内容22内容22内容22内容22内容22内容22内容22内容22内容22内容22内容22内容22',
+	        				comment:'评论22'
+	        			},
+	        			{
+	        				title:'标题33',
+	        				content:'内容33内容33内容33内容33内容33内容33内容33内容33内容33',
+	        				comment:'评论33'
+	        			},
+	        			{
+	        				title:'标题44',
+	        				content:'内容44内容44内容44内容44内容44内容44内容44',
+	        				comment:'评论44'
+	        			},
+	        			{
+	        				title:'标题55',
+	        				content:'内容55内容55内容55内容55内容55内容55内容55内容55内容55内容55内容55内容55',
+	        				comment:'评论55'
+	        			}
+	        		]
+	        	};
+	        }else if(page == 2){
+	        	data = {
+	        		statu : "success",
+	        		todu_list : [
+	        			{
+	        				title:'标题66',
+	        				content:'内容116666内容11内容11内容11内容11',
+	        				comment:'评论66'
+	        			},
+	        			{
+	        				title:'标题77',
+	        				content:'内容7777777777777777777722内容22内容22内容22内容22内容22内容22内容22内容22内容22内容22内容22内容22内容22',
+	        				comment:'评论77'
+	        			},
+	        			{
+	        				title:'标题88',
+	        				content:'内容88888888888888888888888833内容33内容33内容33内容33内容33内容33内容33内容33',
+	        				comment:'评论88'
+	        			},
+	        			{
+	        				title:'标题99',
+	        				content:'内容9999999999999999999999999944内容44内容44内容44内容44内容44内容44',
+	        				comment:'评论99'
+	        			},
+	        			{
+	        				title:'标题10',
+	        				content:'内容10............55内容55内容55内容55内容55内容55内容55内容55内容55内容55内容55内容55',
+	        				comment:'评论10'
+	        			}
+	        		]
+	        	};
+	        }else if(page == 3){
+	        	data = {
+	        		statu : "success",
+	        		todu_list : [
+	        			{
+	        				title:'标题1111',
+	        				content:'内容1111111111内容11内容11内容11内容11',
+	        				comment:'评论1111'
+	        			},
+	        			{
+	        				title:'标题12',
+	        				content:'内容12内容22内容22内容22内容22内容22内容22内容22内容22内容22内容22内容22内容22内容22',
+	        				comment:'评论12'
+	        			},
+	        			{
+	        				title:'标题13',
+	        				content:'内容13内容33内容33内容33内容33内容33内容33内容33内容33',
+	        				comment:'评论13'
+	        			},
+	        			{
+	        				title:'标题14',
+	        				content:'内容14内容44内容44内容44内容44内容44内容44',
+	        				comment:'评论14'
+	        			},
+	        			{
+	        				title:'标题15',
+	        				content:'内容15内容55内容55内容55内容55内容55内容55内容55内容55内容55内容55内容55',
+	        				comment:'评论15'
+	        			}
+	        		]
+	        	};
+	        }else{
+	        	data = {
+	        		statu : "success",
+	        		todu_list : [
+	        			{
+	        				title:'标题',
+	        				content:'内容1111111111内容11内容11内容11内容11',
+	        				comment:'评论'
+	        			},
+	        			{
+	        				title:'标题',
+	        				content:'内容12内容22内容22内容22内容22内容22内容22内容22内容22内容22内容22内容22内容22内容22',
+	        				comment:'评论'
+	        			},
+	        			{
+	        				title:'标题',
+	        				content:'内容13内容33内容33内容33内容33内容33内容33内容33内容33',
+	        				comment:'评论'
+	        			},
+	        			{
+	        				title:'标题',
+	        				content:'内容14内容44内容44内容44内容44内容44内容44',
+	        				comment:'评论'
+	        			},
+	        			{
+	        				title:'标题',
+	        				content:'内容15内容55内容55内容55内容55内容55内容55内容55内容55内容55内容55内容55',
+	        				comment:'评论'
+	        			}
+	        		]
+	        	};
+	        }
+        	if(data.statu == "success"){
+        		var news_list="" ;
+	        	$.each(data.todu_list,function(index, item) {
+	        		news_list += '<li>' ;
+	        		news_list += '<div class="news_message">' ;
+					news_list += '<div class="news_title">' + item.title + '</div>' ;
+					news_list += '<div class="news_content">' + item.content + '</div>' ;
+					news_list += '<div class="news_comment">' + item.comment + '</div>' ;
+					news_list += '</div>'
+					news_list += '</li>' ;
+	        	});
+	        	// console.log(news_list);
+	        	$('#news_list_content_c').html(news_list);
+        	}else{
+        		alert('数据获取失败，请重试...');
+        	}
+        }
+    </script>
+</body>
+</html>

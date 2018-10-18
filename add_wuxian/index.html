@@ -1,8 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>无限上拉加载</title>
+	<link rel="shortcut icon" href="static/images/icon/putao.png">
+	<script>
+		document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + 'px';
+		var deviceWidth = document.documentElement.clientWidth;
+		if(deviceWidth > 750) deviceWidth = 750;
+		document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';　　　　　
+	</script>
+	<script src="static/js/jquery.min.js"></script>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+		#spinner{
+	        position: fixed;
+	        top: 5rem;
+	        left: 10%;
+	        width: 80%;
+	        display: block;
+	        color: red;
+	        font-weight: 900;
+	        background-color: #333333;
+	        opacity: 0.4;
+	        border-radius: 3rem;
+	        text-align: center;
+    	}
+	</style>
 </head>
 <body>
 	<div class="content">
@@ -21,10 +50,10 @@
 		            var scrollHeight = window.pageYOffset ||
 		                document.documentElement.scrollTop ||
 		                document.body.scrollTop || 0;
-		            console.log("内容高度："+pageHeight);
-		            console.log("视口高度"+viewportHeight);
-		            console.log("上面隐藏高度："+scrollHeight);
-		            console.log("----------------------------------------------");
+		            // console.log("内容高度："+pageHeight);
+		            // console.log("视口高度"+viewportHeight);
+		            // console.log("上面隐藏高度："+scrollHeight);
+		            // console.log("----------------------------------------------");
 		            return pageHeight - viewportHeight - scrollHeight < 10;
 		        }
 

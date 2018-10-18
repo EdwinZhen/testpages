@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="content">
+		<div id="sample"></div>
+		<div id="spinner">
+		        正在加载
+		</div> 
+	</div>
+<script type="text/javascript">
+		        var index = 0;
+		        function lowEnough(){
+		            var pageHeight = Math.max(document.body.scrollHeight,document.body.offsetHeight);
+		            var viewportHeight = window.innerHeight || 
+		                document.documentElement.clientHeight ||
+		                document.body.clientHeight || 0;
+		            var scrollHeight = window.pageYOffset ||
+		                document.documentElement.scrollTop ||
+		                document.body.scrollTop || 0;
+		            console.log("内容高度："+pageHeight);
+		            console.log("视口高度"+viewportHeight);
+		            console.log("上面隐藏高度："+scrollHeight);
+		            console.log("----------------------------------------------");
+		            return pageHeight - viewportHeight - scrollHeight < 10;
+		        }
+
+		        function doSomething(){
+		            var htmlStr = "";
+		            for(var i=0;i<10;i++){
+		                htmlStr += "这是第"+index+"次加载<br>";
+		            }
+		            $('#sample').append(htmlStr);
+		            index++;
+		            pollScroll();//继续循环
+		            $('#spinner').hide();
+		        }
+
+		        function checkScroll(){
+		            if(!lowEnough()) return pollScroll();
+
+		            $('#spinner').show();
+		            setTimeout(doSomething,900);
+		            
+		        }
+		        function pollScroll(){
+		            setTimeout(checkScroll,1000);
+		        }
+		        checkScroll();
+		    </script>	
+</body>
+</html>

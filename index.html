@@ -31,41 +31,107 @@
 		}
 		.content {
 			width: 7.5rem;
-			height: 13.34rem;
+			/* height: 13.34rem; */
 			font-size: .36rem;
 			background: #ddd;
 			border: 1px dotted #00e0a8;
 			position: relative;
 		}
-		header,footer{
+		header,footer {
 			height: 1rem;
 			line-height: 1rem;
 			background: #aaaaaa;
 			text-align: center;
+			width: 100%;
+			position: relative;
 		}
 		footer {
-			width: 100%;
-			position: absolute;
-			bottom: 0;
 			left: 0;
+			bottom: 0;
 		}
 		.lalala {
-			padding-top: 1rem;
+			/* padding-top: 1rem; */
 			color: #00e0a8;
+			height: 10.8rem;
+			overflow: auto;
+			/* margin: 1rem 0; */
 		}
-		
+		.lalala_c {
+			height: 18rem;
+		}
+		.add_loading {
+			text-align: center;
+			color: #333333;
+			opacity: 0;
+		}
+		.data_list {
+			padding: 0.2rem;
+			display: flex;
+			color: #333;
+		}
 	</style>
 </head>
 <body>
 	<div class="content">
-		<header>静夜思</header>
-		<div class="lalala" style="text-align: center;">
-			   小蚊子，皮痒痒；<br>
-			   欠收拾，不打烊；<br>
-			   挨了星哥两苞子；<br>
-			   脑袋转成滴流子。<br>
+		<header>header</header>
+		<div id="lalala" class="lalala" style="text-align: center;">
+			<div class="lalala_c">
+				content
+			</div>
+			<div id="lalala_lin"></div>
 		</div>
-		<footer>傻子李博文</footer>
+		<div class="add_loading">——点击加载——</div>
+		<footer>footer</footer>
 	</div>
+	<script>
+		var data = {
+			statu : "success",
+			list : [
+				{
+					title: "标题11111",
+					content: "内容1111111111111111",
+					comments: "评论111"
+				},
+				{
+					title: "标题22",
+					content: "内容1122222222222222222111",
+					comments: "评论22"
+				}
+			]
+		};
+		var is_add = false ;
+	$('#lalala').scroll(function () {
+		// var a = document.documentElement.scrollTop || document.body.scrollTop;//滚动条y轴上的距离
+		var a = $(this)[0].scrollTop;
+        // var b = document.documentElement.clientHeight || document.body.clientHeight;//可视区域的高度
+        var b = $(this).height();
+        // var c = document.documentElement.scrollHeight || document.body.scrollHeight;//可视化的高度与溢出的距离（总高度）
+        var c = $(this)[0].scrollHeight;
+        console.log("a:"+a);
+        console.log("b:"+b);
+        console.log("c:"+c);
+        is_add = true;
+        if(a + b + 60 >= c){
+            console.log('已滚动到底部!');
+            $('.add_loading').css('opacity','0.65');
+            //点击加载
+            $('.add_loading').click(function(event) {
+            	if(is_add){
+            		is_add = false;
+	            	$('.add_loading').css('opacity','0');
+	            	var sen = "";	
+	            	$.each(data.list,function(index, item) {
+	            		sen += '<div class="data_list">' ;
+	            		sen += '<div>' + item.title + '</div>' ;
+	            		sen += '<div>' + item.content + '</div>' ;
+	            		sen += '<div>' + item.comments + '</div>' ;
+	            		sen += '</div>' ;
+	            	});
+	            	$('#lalala_lin').append(sen);
+	            }
+            });
+        }
+    });
+	</script>
 </body>
 </html>

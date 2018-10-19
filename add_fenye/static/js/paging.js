@@ -36,7 +36,7 @@
             that.options.jump ? jumpDom = '<input type="text" placeholder="1" class="jump-text jumpText" ><button type="button" class="jump-button" >跳转</button>' : jumpDom = '';
             content = '<div class="pagger-box"><div id="__edwin__first_line"><button type="button"  class="turnPage first-page">首页</button>' +
                 '<button class="turnPage pre-page">上一页</button>' +
-                '<div class="pageWrap" style="width:' + wrapLength + 'px">' +
+                '<div class="pageWrap" >' +
                 '<ul class="pageSelect" style="transition:all ' + that.options.slideSpeed + 'ms">' +
                 ulDom +
                 '</ul></div>' +
@@ -56,7 +56,7 @@
         	var $el =that.el;
             var pageSelect = $el.find('.pageSelect'), // ul
                 lis = pageSelect.children(), // li的集合
-                liWidth = 45, // li的宽度
+                liWidth = 0.7, // li的宽度
                 totalPages = that.options.totalPages, // 总页数
                 pageIndex = that.options.pageNo, // 当前选择的页码
                 distance = 0, // ul移动距离
@@ -120,8 +120,8 @@
                 }
                 if (pageIndex >= 3 && pageIndex <= totalPages - 2) distance = (pageIndex - 3) * liWidth;
                 if (pageIndex == 2 || pageIndex == 1) distance = 0;
-                if (pageIndex > totalPages - 2) distance = (totalPages - 5) * liWidth;
-                pageSelect.css('transform', 'translateX(' + (-distance) + 'px)');
+                if (pageIndex > totalPages - 2) distance = (totalPages - 3) * liWidth;
+                pageSelect.css('transform', 'translateX(' + (-distance) + 'rem)');
                 pageIndex == 1 ? firstPage.attr('disabled', true) : firstPage.attr('disabled', false);
                 pageIndex == 1 ? prePage.attr('disabled', true) : prePage.attr('disabled', false);
                 pageIndex == totalPages ? lastPage.attr('disabled', true) : lastPage.attr('disabled', false);

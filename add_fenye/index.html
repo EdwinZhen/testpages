@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<title>分页加载-数据</title>
-	<link rel="shortcut icon" href="static/images/icon/putao.png">
+	<link rel="shortcut icon" href="static/images/icon/mihoutao.png">
 	<script>
 		document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + 'px';
 		var deviceWidth = document.documentElement.clientWidth;
@@ -85,14 +85,14 @@
 		$(function () {
             function tab_change_pages(li_num_c) {
             	//发请求获取总条数和总页码
-                var setTotalCount = 50;
+                var setTotalCount = 65;
                 $('#tab_pagesss').paging({
                     initPageNo: 1, // 初始页码
                     totalPages: 13, //总页数
                     totalCount: '合计' + setTotalCount + '条数据', // 条目总数
                     slideSpeed: 600, // 缓动速度。单位毫秒
                     jump: true, //是否支持跳转
-                    __edwin__find_li_num: 2, //Edwin添加，显示的页码数量,页码3~xxx至少3起（）
+                    __edwin__find_li_num: 5, //Edwin添加，显示的页码数量,页码3~xxx至少3起（）
                     callback: function (page) { // 回调函数
                         show_list_lie(page);
                     }
@@ -103,10 +103,10 @@
         $(function () {
             function tab_change_pages(li_num_c) {
             	//发请求获取总条数和总页码
-                var setTotalCount = 50;
+                var setTotalCount = 55;
                 $('#tab_pages').paging({
                     initPageNo: 1, // 初始页码
-                    totalPages: 13, //总页数
+                    totalPages: 11, //总页数
                     totalCount: '合计' + setTotalCount + '条数据', // 条目总数
                     slideSpeed: 600, // 缓动速度。单位毫秒
                     jump: true, //是否支持跳转
